@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Situs Sedang Dalam Perbaikan</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --muted:#9aa7b3;
+      --glass: rgba(255,255,255,0.03);
+      --radius:18px;
+      --maxw:900px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent 8%),
+        radial-gradient(1000px 500px at 90% 90%, rgba(99,102,241,0.05), transparent 8%),
+        var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:calc(var(--radius) + 6px);
+      padding:36px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.7);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+      backdrop-filter: blur(6px);
+    }
+
+    /* responsive: stack on small screens */
+    @media (max-width:880px){
+      .wrap{ grid-template-columns: 1fr; padding:28px; gap:18px; }
+    }
+
+    .left{
+      padding-right:6px;
+    }
+
+    .logo{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .logo .icon{
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent), #7c3aed);
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+      font-size:18px;
+      box-shadow: 0 6px 18px rgba(6,182,212,0.12), inset 0 -6px 14px rgba(255,255,255,0.03);
+    }
+    .logo h1{ font-size:16px; margin:0; color:white; letter-spacing:0.4px;}
+    .logo p{ margin:0; font-size:12px; color:var(--muted)}
+
+    h2{
+      margin: 6px 0 12px 0;
+      color: #e6f7fb;
+      font-size:26px;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:15px;
+      max-width:680px;
+    }
+
+    .features{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .feature{
+      background:var(--glass);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:13px;
+      color: #bcd7dc;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .feature .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow: 0 4px 10px rgba(6,182,212,0.12);
+    }
+
+    .actions{
+      margin-top:20px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      color:#e6f7fb;
+      transition:transform .14s ease, box-shadow .14s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted);
+      border:1px dashed rgba(255,255,255,0.03);
+      font-weight:600;
+    }
+
+    /* right card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:14px;
+      padding:18px;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 28px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .status-big{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .status-emoji{
+      width:68px;
+      height:68px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#7c3aed, var(--accent));
+      display:grid;
+      place-items:center;
+      font-size:34px;
+      color:white;
+      box-shadow: 0 8px 28px rgba(99,102,241,0.12);
+    }
+    .meta{
+      color: #dff7fb;
+    }
+    .meta .when{ font-size:14px; color:var(--muted); margin-top:6px;}
+
+    .progress{
+      margin-top:16px;
+    }
+    .bar{
+      width:100%;
+      height:12px;
+      background: rgba(255,255,255,0.03);
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width:45%;
+      background: linear-gradient(90deg, rgba(6,182,212,0.8), rgba(124,58,237,0.85));
+      box-shadow: 0 6px 18px rgba(99,102,241,0.12);
+      transform-origin:left;
+      transition:width .7s ease;
+    }
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+
+    footer.note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* small decorative corner */
+    .corner{
+      position:fixed;
+      left:18px;
+      bottom:18px;
+      background:rgba(255,255,255,0.02);
+      border-radius:10px;
+      padding:8px 12px;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* accessibility */
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main" aria-labelledby="title">
+    <section class="left" aria-label="Informasi Perbaikan">
+      <div class="logo">
+        <div class="icon" aria-hidden="true">🌐</div>
+        <div>
+          <h1>Website Biodata MultiAccount</h1>
+          <p>Maintenance • Perbaikan sedang berjalan</p>
+        </div>
+      </div>
+
+      <h2 id="title">Maaf — situs sedang dalam perbaikan</h2>
+      <p class="lead">
+        Kami sedang melakukan beberapa pembaruan agar pengalaman kamu lebih baik. Mohon maaf atas ketidaknyamanan ini.
+        Tim kami bekerja cepat untuk menyelesaikannya. Terima kasih atas kesabaranmu!
+      </p>
+
+      <div class="features" role="list">
+        <div class="feature" role="listitem"><span class="dot" aria-hidden="true"></span> Update keamanan</div>
+        <div class="feature" role="listitem"><span class="dot" aria-hidden="true"></span> Perbaikan bug</div>
+        <div class="feature" role="listitem"><span class="dot" aria-hidden="true"></span> Peningkatan performa</div>
+      </div>
+
+      <div class="actions" aria-label="Tindakan">
+        <a class="btn" href="mailto:admin@contoh.com?subject=Mengenai%20Maintenance">Hubungi Kami</a>
+        <a class="btn secondary" href="index.html">Kembali ke Beranda</a>
+      </div>
+
+      <footer class="note" aria-hidden="true">
+        <span>Perkiraan penyelesaian:</span>
+        <strong style="color:var(--accent)">Dalam beberapa jam</strong>
+      </footer>
+    </section>
+
+    <aside class="card" aria-label="Status Perbaikan">
+      <div class="status-big">
+        <div class="status-emoji" aria-hidden="true">🛠️</div>
+        <div>
+          <div class="meta"><strong>Sedang Diperbaiki</strong></div>
+          <div class="when">Terakhir diperbarui: <span style="color:var(--accent)">Hari ini</span></div>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="false">
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" aria-label="Progres perbaikan">
+          <i style="width:45%"></i>
+        </div>
+        <div class="small">
+          <span>Progres: <strong>45%</strong></span>
+          <span>Estimasi: <strong>Beberapa jam</strong></span>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; font-size:13px; color:var(--muted);">
+        Ingin pemberitahuan ketika sudah kembali online? Tinggalkan email kamu (opsional) di bawah:
+        <form style="margin-top:10px; display:flex; gap:8px;" onsubmit="event.preventDefault(); alert('Terima kasih — ini demo. Silakan hubungi admin untuk daftar pemberitahuan.');">
+          <input type="email" name="email" placeholder="email@domain.com" style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:#e6f7fb;" />
+          <button type="submit" class="btn" style="padding:10px 12px;">Daftar</button>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+  <div class="corner" aria-hidden="true">
+    <span>🔒</span>
+    <small>Maintenance Mode</small>
+  </div>
+</body>
+</html>
