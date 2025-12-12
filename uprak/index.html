@@ -115,9 +115,19 @@
             font-size: 16px;
         }
 
+        /* TOMBOL GET STARTED BERGETAR */
         .home button:hover {
             background: white;
             color: black;
+            animation: shake 0.4s linear infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-1deg); }
+            100% { transform: rotate(0deg); }
         }
 
         @media (max-width: 768px) {
@@ -140,6 +150,17 @@
             margin-bottom: 20px;
         }
 
+        /* ANIMASI PROFILE FLOATING */
+        .profile img {
+            animation: floatProfile 3s ease-in-out infinite;
+        }
+
+        @keyframes floatProfile {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0); }
+        }
+
         .about p {
             font-size: 18px;
             line-height: 1.6;
@@ -158,7 +179,6 @@
             filter: invert(1);
             transition: 0.3s;
         }
-
 
         .icon img:hover {
             transform: scale(1.2);
@@ -235,11 +255,19 @@
             gap: 40px;
         }
 
-        .Project img {
-            width: 90%;
-            border-radius: 10px;
-            border: 1px solid #444;
-        }
+        /* ANIMASI HOVER GAMBAR PROJECT */
+.Project img {
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid #444;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.Project img:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
 
         .Kanan h4 {
             font-size: 22px;
@@ -431,23 +459,47 @@
         <div class="HeadPJ" id="project"><h2>Project</h2></div>
 
         <div class="Project">
+
+            <!-- PROJECT 1 -->
             <div class="kiri">
                 <img src="./assets/WhatsApp Image 2025-12-11 at 15.09.48.jpeg">
             </div>
             <div class="Kanan">
                 <h4>WEB Biodata Multi Account</h4>
-                <p>Isi biodata berubah sesuai akun dan data yang telah terdaftar di data base. <br> Jadi Biodatamu hanya bisa diakses oleh pengguna yang tau password mu.</p>
+                <p>Isi biodata berubah sesuai akun dan data yang telah terdaftar di database.</p>
                 <a href="soon.html"><button class="see"><i>Visit</i></button></a>
             </div>
 
+            <!-- PROJECT 2 -->
             <div class="kiri">
                 <img src="./assets/WhatsApp Image 2025-12-11 at 16.14.58.jpeg">
             </div>
             <div class="Kanan">
                 <h4>Short Movie : Semua Punya Masalah</h4>
-                <p>Film pendek tentang semua masalah yang terjadi di sekitar kita. <br>Tanpa menggunakan alat profesional, hanya bermodalkan sebuah kamera dari hp vivo seri lama dan kreativitas bersama.</p>
+                <p>Film pendek yang dibuat menggunakan kamera HP sederhana namun penuh kreativitas.</p>
                 <a href="https://youtu.be/QakEAAFUPhM?si=evQ6LoBZBHAUZTLw"><button class="see"><i>Visit</i></button></a>
             </div>
+
+            <!-- PROJECT 3 - GUNDAM -->
+            <div class="kiri">
+                <img src="./assets/gundam.jpeg">
+            </div>
+            <div class="Kanan">
+                <h4>Project Gundam</h4>
+                <p>Project merakit action figure "GUNDAM" yang melatih kesabaran, ketelitian, dan fokus.</p>
+                <a href="soon.html"><button class="see"><i>Visit</i></button></a>
+            </div>
+
+            <!-- PROJECT 4 - KEROPI -->
+            <div class="kiri">
+                <img src="./assets/keropi.jpeg">
+            </div>
+            <div class="Kanan">
+                <h4>Project Keropi</h4>
+                <p>Project ilustrasi karakter Keropi dengan style lucu dan warna cerah yang dibuat dengan HTML & CSS</p>
+                <a href="soon.html"><button class="see"><i>Visit</i></button></a>
+            </div>
+
         </div>
 
         <!-- CONTACT -->
@@ -482,13 +534,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
